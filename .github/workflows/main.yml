@@ -17,8 +17,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@main
       - name: Build
-        run: bundle exec fastlane build
+        run: fastlane build
       - name: Test
-        run: bundle exec fastlane test
+        run: fastlane test
       - name: Coverage
-        run: bundle exec fastlane coverage
+        run: fastlane coverage
