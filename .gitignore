@@ -17,3 +17,7 @@ DerivedData/
 # cocoapods
 Pods
 Pods/
+
+#build stuff ?
+testOutput/
+test_output/

@@ -1,0 +1,23 @@
+name: 'Astrapay PR Build'
+on:
+  pull_request:
+    types: [opened]
+    branches:
+      - 'main'
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  build-test-coverage:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build
+        uses: fastlane build
+      - name: Test
+        uses: fastlane test
+      - name: Coverage
+        uses: fastlane coverage

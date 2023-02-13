@@ -16,7 +16,21 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Description of what the lane does"
+  desc "IOS Builder"
+  lane :build do
+    #cocoapods(
+    #  clean_install: true,
+    #)
+    xcbuild(
+      project: "./testcicd.xcodeproj",
+      scheme:"testcicd",
+      clean: true,
+      derived_data_path: "./build/",
+      destination: "platform=iOS Simulator,name=iPhone 14,OS=16.2",
+      codesigning_identity: "",
+      skip_codesigning: true,
+    )
+  end
   lane :test do
     scan(
       scheme: "testcicd",
@@ -34,6 +48,6 @@ platform :ios do
       output_directory: "./testOutput/slatherOutput",
       cobertura_xml: false,
       html: true,
-      ignore: ["Pods/*", "ThirdParty/*", “Frameworks/*"]) 
+      ignore: ["Pods/*", "ThirdParty/*", "Frameworks/*"]) 
   end
 end
