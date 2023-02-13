@@ -16,9 +16,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@main
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+          bundler-cache: true
       - name: Build
-        run: fastlane build
+        uses: maierj/fastlane-action@v3.0.0
+        with:
+          lane: 'build'
       - name: Test
-        run: fastlane test
+        uses: maierj/fastlane-action@v3.0.0
+        with:
+          lane: 'test'
       - name: Coverage
-        run: fastlane coverage
+        uses: maierj/fastlane-action@v3.0.0
+        with:
+          lane: 'coverage'
