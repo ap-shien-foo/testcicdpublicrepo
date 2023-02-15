@@ -40,17 +40,6 @@
                ReferencedContainer = "container:testcicd.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "58587A56299467AE00D6A181"
-               BuildableName = "testcicdUITests.xctest"
-               BlueprintName = "testcicdUITests"
-               ReferencedContainer = "container:testcicd.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
