@@ -16,16 +16,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@main
-      - name: Setup Ruby, JRuby and TruffleRuby
+      - name: Setup and Install Ruby
         uses: ruby/setup-ruby@v1.138.0
         with:
           ruby-version: '3.2.1' # Not needed with a .ruby-version file
           bundler-cache: true
-      - name: Ruby Bundle Install
-        run: bundle install
       - name: Build
         run: bundle exec fastlane build
       - name: Test
         run: bundle exec fastlane test
       - name: Coverage
         run: bundle exec fastlane coverage
+      - name: Install SCA
+        run: brew install dependency-check
+      - name: Run SCA
+        run: depedency-check --enableExperimental --project Astrapay --out . --scan ./Podfile.lock
