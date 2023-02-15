@@ -21,6 +21,7 @@ jobs:
         with:
           ruby-version: '3.2.1' # Not needed with a .ruby-version file
           bundler-cache: true
+      - name: Ruby Bundle Install
         run: bundle install
       - name: Build
         run: bundle exec fastlane build
