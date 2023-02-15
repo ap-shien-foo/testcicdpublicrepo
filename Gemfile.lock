@@ -219,6 +219,8 @@ GEM
     netrc (0.11.0)
     nokogiri (1.14.2-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.14.2-x86_64-darwin)
+      racc (~> 1.4)
     optparse (0.1.1)
     os (1.1.4)
     plist (3.6.0)
@@ -284,6 +286,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
+  x86_64-darwin-19
 
 DEPENDENCIES
   cocoapods
