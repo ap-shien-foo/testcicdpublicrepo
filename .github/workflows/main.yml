@@ -1,5 +1,8 @@
 name: 'Astrapay PR Build'
 on:
+  push:
+    branches:
+      - 'daily/**'
   pull_request:
     types:
       - opened
