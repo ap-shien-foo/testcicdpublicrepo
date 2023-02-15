@@ -30,9 +30,9 @@ jobs:
         run: bundle exec fastlane test
       - name: 'Coverage'
         run: bundle exec fastlane coverage
-      - name: 'Dependency Review'
-        uses: actions/dependency-review-action@v3
-      #- name: Install SCA
-      #  run: brew install dependency-check
-      #- name: Run SCA
-      #  run: depedency-check --enableExperimental --project Astrapay --out . --scan ./Podfile.lock
+      #- name: 'Dependency Review'
+      #  uses: actions/dependency-review-action@v3
+      - name: Install SCA
+        run: brew install dependency-check
+      - name: Run SCA
+        run: dependency-check --enableExperimental --project Astrapay --out . --scan ./Podfile.lock
