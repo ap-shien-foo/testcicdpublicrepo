@@ -32,7 +32,23 @@ jobs:
         run: bundle exec fastlane coverage
       #- name: 'Dependency Review'
       #  uses: actions/dependency-review-action@v3
-      - name: Install SCA
-        run: brew install dependency-check
-      - name: Run SCA
-        run: dependency-check --enableExperimental --project Astrapay --out . --scan ./Podfile.lock
+      #- name: Install SCA
+      #  run: brew install dependency-check
+      #- name: Run SCA
+      #  run: dependency-check --enableExperimental --project Astrapay --out ./depedency-check/ --scan ./Podfile.lock
+      name: Depcheck
+        uses: dependency-check/Dependency-Check_Action@main
+        id: Depcheck
+        with:
+          project: 'test'
+          path: '.'
+          format: 'HTML'
+          out: 'reports' # this is the default, no need to specify unless you wish to override it
+          args: >
+            --failOnCVSS 6
+            --enableRetired
+      - name: Upload Test results
+        uses: actions/upload-artifact@master
+        with:
+           name: Depcheck report
+           path: ${{github.workspace}}/reports
