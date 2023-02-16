@@ -30,12 +30,11 @@ jobs:
         run: bundle exec fastlane test
       - name: 'Coverage'
         run: bundle exec fastlane coverage
-      #- name: 'Dependency Review'
-      #  uses: actions/dependency-review-action@v3
-      #- name: Install SCA
-      #  run: brew install dependency-check
-      #- name: Run SCA
-      #  run: dependency-check --enableExperimental --project Astrapay --out ./depedency-check/ --scan ./Podfile.lock
+  depedency-check:
+    runs-on: ['macos-latest', 'ubuntu-latest']
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@main
       - name: Depcheck
         uses: dependency-check/Dependency-Check_Action@main
         id: Depcheck
@@ -52,3 +51,4 @@ jobs:
         with:
            name: Depcheck report
            path: ${{github.workspace}}/reports
+  
