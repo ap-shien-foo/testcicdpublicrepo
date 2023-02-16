@@ -36,7 +36,7 @@ jobs:
       #  run: brew install dependency-check
       #- name: Run SCA
       #  run: dependency-check --enableExperimental --project Astrapay --out ./depedency-check/ --scan ./Podfile.lock
-      name: Depcheck
+      - name: Depcheck
         uses: dependency-check/Dependency-Check_Action@main
         id: Depcheck
         with:
